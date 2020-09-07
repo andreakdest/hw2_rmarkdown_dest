@@ -32,6 +32,13 @@ meanofvec
 mean(vec)
 ```
 
+__Quesiton 2c__
+```{r}
+##install dplyr package
+install.packages("dplyr", repos = 'http://cran.us.r-project.org')
+```
+
+
 __Question 3b__
 
 ```{r}
