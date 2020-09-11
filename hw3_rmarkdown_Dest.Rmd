@@ -1,0 +1,99 @@
+---
+title: "hw3_rmarkdown_Dest"
+author: "andrea dest"
+date: "9/11/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+__Question 1__
+```{r}
+##function to calculate mean
+meanfunction<-function(n)
+{
+  ##find total of values in n, removing all NA values
+  total<-sum(n, na.rm = TRUE)
+  #find number of values in n
+  numinn<-length(n)
+  ##find number of NA data points
+  numofNAs<-sum(is.na(n))
+  ##substract NA values from total number of values in n
+  actualnuminn<-numinn-numofNAs
+  ##find mean of n by dividing total by number of values in n
+  total/actualnuminn
+}
+```
+
+
+```{r}
+#open data file
+dat<-read.csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-01/key_crop_yields.csv", header= TRUE)
+```
+
+__Question 2__
+```{r}
+#find range of years in data
+#use range function
+rangeofdatyear<- range(dat$Year) 
+#print range of data
+rangeofdatyear
+```
+
+__Question 3__
+```{r}
+#calculate the mean of maize (tonnes per hectare)
+meanofmaize<-meanfunction(dat$Maize)
+meanofmaize
+
+```
+
+__Question 4__
+```{r}
+##save a file with  name "Entity"
+write.csv(dat, "entity.csv")
+
+```
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+R version 3.6.3 (2020-02-29) -- "Holding the Windsock"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
