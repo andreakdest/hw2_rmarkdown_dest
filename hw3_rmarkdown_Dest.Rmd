@@ -53,7 +53,7 @@ meanofmaize
 __Question 4__
 ```{r}
 ##save a file with  name "Entity"
-write.csv(dat, "entity.csv")
+write.table(dat, "entity.txt", sep="\t")
 
 ```
 
